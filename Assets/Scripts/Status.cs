@@ -9,13 +9,15 @@ public class Status : MonoBehaviour
     Text _playerNameText, _hitPointText, _magicPointText;
 
     [SerializeField]
-    string _playerNeme;
+    public string _playerNeme;
     [SerializeField]
-    int _playerHitPoint = 100;
+    public int _playerHitPoint = 100;
     [SerializeField]
-    int _magicPoint = 50;
+    public int _magicPoint = 50;
     [SerializeField]
-    int _skillReboundCounts = 0;
+    public int _skillReboundCounts = 0;
+    [SerializeField]
+    public int _herbCount = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +28,14 @@ public class Status : MonoBehaviour
     void Update()
     {
         _playerNameText.text = _playerNeme;
-        _hitPointText.text = "HP:" + _playerHitPoint.ToString();
+        if(_playerHitPoint > 0)
+        {
+            _hitPointText.text = "HP:" + _playerHitPoint.ToString();
+        }
+        else
+        {
+            _hitPointText.text = "HP:0";
+        }
         _magicPointText.text = "MP:" + _magicPoint.ToString();
     }
 }
